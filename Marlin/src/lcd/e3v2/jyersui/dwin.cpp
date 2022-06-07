@@ -4287,7 +4287,8 @@
         #define ADVANCED_LA (ADVANCED_CORNER + ENABLED(LIN_ADVANCE))
         #define ADVANCED_FILMENU (ADVANCED_LA + 1)
         #define ADVANCED_SORT_SD (ADVANCED_FILMENU + ALL(SDSUPPORT, SDCARD_SORT_ALPHA, SDSORT_GCODE))
-        #define ADVANCED_POWER_LOSS (ADVANCED_SORT_SD + ENABLED(POWER_LOSS_RECOVERY))
+        #define ADVANCED_REPRINT (ADVANCED_SORT_SD + 1)
+        #define ADVANCED_POWER_LOSS (ADVANCED_REPRINT + ENABLED(POWER_LOSS_RECOVERY))
         #define ADVANCED_ENDSDIAG (ADVANCED_POWER_LOSS + ENABLED(HAS_ES_DIAG))
         #define ADVANCED_BAUDRATE_MODE (ADVANCED_ENDSDIAG + ENABLED(BAUD_RATE_GCODE))
         #define ADVANCED_SCREENLOCK (ADVANCED_BAUDRATE_MODE + 1)
@@ -4362,6 +4363,16 @@
               }
               break;
           #endif
+          case ADVANCED_REPRINT:
+            if (draw) {
+              Draw_Menu_Item(row, ICON_File, F("Re-Print on/off"));
+              Draw_Checkbox(row, HMI_datas.reprint_on);
+            }
+            else {
+              HMI_datas.reprint_on = !HMI_datas.reprint_on;
+              Draw_Checkbox(row, HMI_datas.reprint_on);
+            }
+            break;
           #if ENABLED(POWER_LOSS_RECOVERY)
             case ADVANCED_POWER_LOSS:
               if (draw) {
@@ -7110,7 +7121,8 @@
             file_preview = false;
           #endif
           queue.inject(F("M84"));
-          Popup_Handler(Reprint);
+          if (HMI_datas.reprint_on)  Popup_Handler(Reprint);
+          else { TERN_(DEBUG_DWIN, SERIAL_ECHOLNPGM("DWIN_Print_Finished")); Draw_Main_Menu(); }
           break;
         case FilInsert:
           Popup_Handler(FilChange);
@@ -7743,6 +7755,7 @@
     HMI_datas.time_format_textual = false;
     HMI_datas.fan_percent = false;
     HMI_datas.rev_encoder_dir = false;
+    HMI_datas.reprint_on = false;
     TERN_(AUTO_BED_LEVELING_UBL, HMI_datas.tilt_grid_size = 0);
     HMI_datas.corner_pos = 325;
     HMI_datas.cursor_color = TERN(Ext_Config_JyersUI, Def_cursor_color, 0);

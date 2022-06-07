@@ -233,6 +233,7 @@ typedef struct {
     #endif
 
     bool rev_encoder_dir : 1;
+    bool reprint_on : 1;
 
     #if EXTJYERSUI
       #if ENABLED(NOZZLE_PARK_FEATURE)
