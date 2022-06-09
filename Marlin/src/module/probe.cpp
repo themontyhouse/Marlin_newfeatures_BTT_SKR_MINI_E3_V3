@@ -415,7 +415,7 @@ FORCE_INLINE void probe_specific_action(const bool deploy) {
             }
       #if ENABLED(DWIN_CREALITY_LCD_JYERSUI)
         }
-        else thermalManager.setTargetHotend(0, 0);
+        else if (!CrealityDWIN.printing) thermalManager.setTargetHotend(0, 0);
       #endif        
     #elif ENABLED(WAIT_FOR_BED_HEAT)
       constexpr celsius_t hotendPreheat = 0;
@@ -433,7 +433,7 @@ FORCE_INLINE void probe_specific_action(const bool deploy) {
           }
       #if ENABLED(DWIN_CREALITY_LCD_JYERSUI)
         }
-        else thermalManager.setTargetBed(0);
+        else if (!CrealityDWIN.printing) thermalManager.setTargetBed(0);
       #endif
 
     #endif

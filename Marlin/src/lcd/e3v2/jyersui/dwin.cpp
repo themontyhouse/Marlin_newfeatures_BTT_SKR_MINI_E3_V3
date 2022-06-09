@@ -136,7 +136,7 @@
   #if ENABLED(BOOTPERSO)
     #define BUILD_NUMBER "Build nb: v3.0.0a"
   #else
-    #define BUILD_NUMBER "Build nb: v2.1.0a"
+    #define BUILD_NUMBER "Build nb: v2.1.0b"
   #endif
 
   #define MENU_CHAR_LIMIT  24
@@ -4837,6 +4837,7 @@
                     //Popup_Handler(SaveLevel);
                     #if EXTJYERSUI
                       if (!HMI_flags.cancel_ubl) Viewmesh();
+                      else HMI_flags.cancel_ubl = 0;
                     #else
                       Viewmesh();
                     #endif
@@ -4859,6 +4860,7 @@
                   //Popup_Handler(SaveLevel);
                   #if EXTJYERSUI
                    if (!HMI_flags.cancel_abl) Viewmesh();
+                   else HMI_flags.cancel_abl = 0;
                   #else
                    Viewmesh();
                   #endif
