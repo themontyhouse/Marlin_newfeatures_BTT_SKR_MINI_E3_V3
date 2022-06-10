@@ -7727,12 +7727,13 @@
       old_sdsort = !HMI_datas.sdsort_alpha;
     #endif
 
-    #if BOTH(LED_CONTROL_MENU, HAS_COLOR_LEDS)
-      leds.color.b = ((HMI_datas.LEDColor >>  0) & 0xFF);
-      leds.color.g = ((HMI_datas.LEDColor >>  8) & 0xFF);
-      leds.color.r = ((HMI_datas.LEDColor >> 16) & 0xFF);
-      TERN_(HAS_WHITE_LED, leds.color.w = ((HMI_datas.LEDColor >> 24) & 0xFF));
-      leds.update();
+    #if ENABLED(LED_CONTROL_MENU, HAS_COLOR_LEDS)
+      leds.set_color(
+      (HMI_datas.LEDColor >> 16) & 0xFF,
+      (HMI_datas.LEDColor >>  8) & 0xFF,
+      (HMI_datas.LEDColor >>  0) & 0xFF
+      OPTARG(HAS_WHITE_LED, (HMI_datas.LEDColor >> 24) & 0xFF)
+      );
     #endif
 
     shortcut0 = HMI_datas.shortcut_0;
