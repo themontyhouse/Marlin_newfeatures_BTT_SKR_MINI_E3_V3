@@ -7762,7 +7762,7 @@
     TERN_(AUTO_BED_LEVELING_UBL, HMI_datas.tilt_grid_size = 0);
     HMI_datas.corner_pos = 325;
     #if HAS_LCD_BRIGHTNESS
-      ui.brightness = TERN(Ext_Config_JyersUI, Def_brigtness_default, LCD_BRIGHTNESS_DEFAULT);
+      ui.brightness = TERN(Ext_Config_JyersUI, Def_brightness_default, LCD_BRIGHTNESS_DEFAULT);
       ui.refresh_brightness();
     #endif
     HMI_datas.cursor_color = TERN(Ext_Config_JyersUI, Def_cursor_color, 0);

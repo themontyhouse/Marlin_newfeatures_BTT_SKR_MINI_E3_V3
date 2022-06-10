@@ -81,7 +81,7 @@
  * 
  */
 
-#define Def_brigtness_default          127
+#define Def_brightness_default          127
 
 
 
