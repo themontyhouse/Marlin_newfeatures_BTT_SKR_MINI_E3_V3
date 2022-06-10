@@ -106,8 +106,8 @@
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_CREALITY_V4 // Creality Board v4.2.2 and V4.3.1 E3V2
-  //#define MOTHERBOARD BOARD_CREALITY_V427 // Creality Board v4.2.7
+  //#define MOTHERBOARD BOARD_CREALITY_V4 // Creality Board v4.2.2 and V4.3.1 E3V2
+  #define MOTHERBOARD BOARD_CREALITY_V427 // Creality Board v4.2.7
   //#define MOTHERBOARD BOARD_CREALITY_V423 // Creality Board v4.2.3 Ender-2 Pro
   //#define MOTHERBOARD BOARD_CREALITY_V422 // Creality Board v4.2.2
   //#define MOTHERBOARD BOARD_CREALITY_V431 // Creality Board v4.3.1
@@ -1788,7 +1788,7 @@
  * - Allows Z homing only when XY positions are known and trusted.
  * - If stepper drivers sleep, XY homing may be required again before Z homing.
  */
-//#define Z_SAFE_HOMING
+#define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
   #define Z_SAFE_HOMING_X_POINT X_CENTER     // X point for Z homing

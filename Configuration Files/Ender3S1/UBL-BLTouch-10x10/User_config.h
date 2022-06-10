@@ -74,6 +74,15 @@
 #define Def_Shortcut_0    0
 #define Def_Shortcut_1    1
 
+/**
+ * LCD Brightness default :
+ * Default = 127
+ * 
+ */
+
+#define Def_brigtness_default          127
+
+
 
 /**
  * Color list number :

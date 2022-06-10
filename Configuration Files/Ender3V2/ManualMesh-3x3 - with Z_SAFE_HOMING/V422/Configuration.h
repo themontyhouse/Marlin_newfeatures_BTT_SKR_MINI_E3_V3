@@ -159,7 +159,7 @@
 
 
 // Name displayed in the LCD "Ready" message and Info menu
-//#define CUSTOM_MACHINE_NAME "Ender-3 V2 ManualMesh 5x5"   // Ender3v2 Configs
+//#define CUSTOM_MACHINE_NAME "Ender-3 V2 ManualMesh 3x3"   // Ender3v2 Configs
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -1425,7 +1425,7 @@
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
-#define X_MAX_POS X_BED_SIZE + 15 // Extended max to allow the probe to reach more of the bed.   // Ender3v2 Configs
+#define X_MAX_POS X_BED_SIZE // Extended max to allow the probe to reach more of the bed.   // Ender3v2 Configs
 #define Y_MAX_POS Y_BED_SIZE   // Ender3v2 Configs
 #define Z_MAX_POS 250   // Ender3v2 Configs
 //#define I_MIN_POS 0
@@ -1654,7 +1654,7 @@
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define GRID_MAX_POINTS_X 5
+  #define GRID_MAX_POINTS_X 3
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Probe along the Y axis, advancing X after each column
@@ -1788,7 +1788,7 @@
  * - Allows Z homing only when XY positions are known and trusted.
  * - If stepper drivers sleep, XY homing may be required again before Z homing.
  */
-//#define Z_SAFE_HOMING
+#define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
   #define Z_SAFE_HOMING_X_POINT X_CENTER     // X point for Z homing
