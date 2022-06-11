@@ -2856,7 +2856,7 @@ void MarlinSettings::reset() {
   #endif
 
   TERN_(DWIN_LCD_PROUI, DWIN_SetDataDefaults());
-  TERN_(DWIN_CREALITY_LCD_JYERSUI, CrealityDWIN.Reset_Settings());
+  
 
   //
   // Case Light Brightness
@@ -3110,6 +3110,7 @@ void MarlinSettings::reset() {
   #if HAS_LCD_BRIGHTNESS
     ui.brightness = TERN(Ext_Config_JyersUI, Def_brightness_default, LCD_BRIGHTNESS_DEFAULT);
   #endif
+  
   //
   // LCD Backlight Timeout
   //
@@ -3226,6 +3227,11 @@ void MarlinSettings::reset() {
   // MKS UI controller
   //
   TERN_(DGUS_LCD_UI_MKS, MKS_reset_settings());
+
+  //
+  // Ender-3 V2 with Extended JYERSUI
+  //
+  TERN_(DWIN_CREALITY_LCD_JYERSUI, CrealityDWIN.Reset_Settings());
 
   postprocess();
 
