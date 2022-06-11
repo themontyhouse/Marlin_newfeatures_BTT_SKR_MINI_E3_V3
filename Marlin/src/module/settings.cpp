@@ -3107,8 +3107,9 @@ void MarlinSettings::reset() {
   //
   // LCD Brightness
   //
-  TERN_(HAS_LCD_BRIGHTNESS, ui.brightness = LCD_BRIGHTNESS_DEFAULT);
-
+  #if HAS_LCD_BRIGHTNESS
+    ui.brightness = TERN(Ext_Config_JyersUI, Def_brightness_default, LCD_BRIGHTNESS_DEFAULT);
+  #endif
   //
   // LCD Backlight Timeout
   //

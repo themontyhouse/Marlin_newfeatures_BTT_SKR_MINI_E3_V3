@@ -7781,7 +7781,7 @@
     HMI_datas.ico_confirm_txt = TERN(Ext_Config_JyersUI, Def_ico_confirm_txt, 0);
     HMI_datas.ico_confirm_bg = TERN(Ext_Config_JyersUI, Def_ico_confirm_bg, 0);
     HMI_datas.ico_cancel_txt = TERN(Ext_Config_JyersUI, Def_ico_cancel_txt, 0);
-    HMI_datas.ico_cancel_txt = TERN(Ext_Config_JyersUI, Def_ico_cancel_bg, 0);
+    HMI_datas.ico_cancel_bg = TERN(Ext_Config_JyersUI, Def_ico_cancel_bg, 0);
     HMI_datas.ico_continue_txt = TERN(Ext_Config_JyersUI, Def_ico_continue_txt, 0);
     HMI_datas.ico_continue_bg = TERN(Ext_Config_JyersUI, Def_ico_continue_bg, 0);
     HMI_datas.print_screen_txt = TERN(Ext_Config_JyersUI, Def_print_screen_txt, 0);
